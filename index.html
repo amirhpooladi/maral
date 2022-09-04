@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous JavaScript</title>
+</head>
+
+<body>
+<div style="text-align:center"  >
+    <button class="mar" style="font-size: 3rem;"        >:) کلیک کنید</button>
+</div>
+    <h1 class="bb"> </h1>
+    <img src="../w.develop/9forkify/dist/img/icons.svg#icon-arrow-right" alt="hi">
+
+    <script src="async.js">
+        
+        //   const second =()=>{
+        //     setTimeout(()=>{
+        //       console.log("async hey there");
+        // },2000);
+        // }
+        // const first = () => {
+        //   console.log("hey there");
+        //  second();
+        // console.log("the end");
+        // }
+        // first();
+        /*
+                function getRecepie() {
+                    setTimeout(() => {
+                        const recipeID = [523, 883, 432, 974]
+                        console.log((recipeID));
+        
+                        setTimeout(id => {
+                            const recipe = { title: "French tomato pasta", piblisher: "jonas" };
+                            console.log(`${id} : ${recipe.title}`);
+        
+        
+                            setTimeout(piblisher => {
+                                const recipe = { title: "Italian pizza", publisher: "jonas" }
+                                console.log(recipe);
+        
+                            }, 1500, recipe.piblisher)
+                        }, 1500, recipeID[2]);
+        
+                    }, 1500)
+                }
+                getRecepie();
+        */
+
+/*
+        function getWeather(lat, lon) {
+
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=150ef37052f1a7461e5a5ab7f51487ef`)
+                .then(resault => { 
+
+                    return resault.json();
+                })
+                .then(data => {
+                    console.log(data);
+
+                    console.log(`Tempretures in ${data.name} stay between ${Math.floor( data.main.temp_min-274)} and ${Math.floor(data.main.temp_max-274)} `);
+                })
+                .catch(error => console.log(error));
+        }
+        getWeather(33.505288, 49.054442);
+        getWeather(34, 50);
+
+        */
+/*
+        async function getting(lat, lon) {
+            try{
+                var weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=150ef37052f1a7461e5a5ab7f51487ef`);
+            weather =await weather.json();
+            console.log(`${weather.name}************${weather.weather[0].description}`);
+            console.log(weather);
+            return weather;
+            }catch(error){
+                alert(error)
+            }
+            
+        }
+        let dataLonson;
+        getting(34,50).then(data=>{
+            dataLondon=data
+            console.log(dataLondon);
+        });
+*/
+async function weatherCom(food){
+   try{
+     var w=await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${"39d4c836661b4c0db138a097f04ddb32"}&query=${food}`);
+   w=await w.json();
+    console.log(w);
+    
+}catch{
+    console.log("error");
+}
+}
+weatherCom();
+
+
+    </script>
+</body>
+
+</html>
